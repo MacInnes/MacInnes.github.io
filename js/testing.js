@@ -21,7 +21,7 @@ function init() {
 
   // world
   var loader = new THREE.STLLoader();
-  var material = new THREE.MeshPhongMaterial( { color: 0xAAAAAA, specular: 0x111111, shininess: 200 } );
+  var material = new THREE.MeshPhongMaterial( { color: 0xAAAAAA, specular: 0x111111, shininess: 0 } );
   loader.load( './assets/testfile.stl', function ( geometry ) { // need to dynamically load each file (from url?)
     var meshMaterial = material;
     if (geometry.hasColors) {
@@ -51,16 +51,24 @@ function init() {
 
   // lights
 
-  light = new THREE.DirectionalLight( 0xffffff );
-  light.position.set( 2, 1, 1 );
-  scene.add( light );
+  var light1 = new THREE.DirectionalLight( 0xffffff );
+  light1.position.set( 2, 1, 1 );
+  scene.add( light1 );
 
-  light = new THREE.DirectionalLight( 0xffffff );
-  light.position.set( -1, 1, 1 );
-  scene.add( light );
+  // var light2 = new THREE.DirectionalLight( 0xffffff );
+  // light2.position.set( 1, 1, 1 );
+  // scene.add( light2 );
 
-  light = new THREE.AmbientLight( 0x222222 );
-  scene.add( light );
+  var light3 = new THREE.AmbientLight( 0x222222 );
+  scene.add( light3 );
+
+  var light4 = new THREE.DirectionalLight( 0xffffff );
+  light4.position.set(-2,-2, 2);
+  scene.add( light4 );
+
+  var light5 = new THREE.DirectionalLight( 0xffffff );
+  light5.position.set(5,5,-10);
+  scene.add( light5 );
 
 
   // renderer
@@ -91,9 +99,20 @@ function animate() {
 
   requestAnimationFrame( animate );
   controls.update();
-
+  render();
 }
 
 function render() {
   renderer.render( scene, camera );
 }
+
+function findFileName(url){
+  var filePath = "/images/technical-drawings/3d/";
+  var fileName = url.split('/');
+  return filePath + fileName[fileName.length - 1] + '.stl';
+}
+// testing purposes:
+
+console.log(findFileName('www.mockett.com/3d/PCS82A-U1'));
+
+console.log(window.location.href);

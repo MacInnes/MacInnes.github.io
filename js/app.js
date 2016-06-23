@@ -57,7 +57,7 @@
 				// 	scene.add( mesh );
 				// } );
 				// Colored binary STL
-				loader.load( './assets/testfile.stl', function ( geometry ) {
+				loader.load( './assets/testfile3.stl', function ( geometry ) {
 					var meshMaterial = material;
 					if (geometry.hasColors) {
 						meshMaterial = new THREE.MeshPhongMaterial({ opacity: geometry.alpha, vertexColors: THREE.VertexColors });
