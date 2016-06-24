@@ -9,7 +9,7 @@ animate();
 
 function init() {
 
-  camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 1000 );
+  camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 100 );
   camera.position.z = 30;
 
   controls = new THREE.OrbitControls( camera );
@@ -21,7 +21,7 @@ function init() {
 
   // world
   var loader = new THREE.STLLoader();
-  var material = new THREE.MeshPhongMaterial( { color: 0xAAAAAA, specular: 0x111111, shininess: 0 } );
+  var material = new THREE.MeshPhongMaterial( { color: 0xBFBFBF, specular: 0x111111, shininess: 0 } );
   loader.load( './assets/testfile.stl', function ( geometry ) { // need to dynamically load each file (from url?)
     var meshMaterial = material;
     if (geometry.hasColors) {
@@ -51,30 +51,50 @@ function init() {
 
   // lights
 
-  var light1 = new THREE.DirectionalLight( 0xffffff );
-  light1.position.set( 2, 1, 1 );
-  scene.add( light1 );
+  var hemisphereTest = new THREE.HemisphereLight(0xFFF5EE, 0xB0A6A4, 0.9);
+  scene.add(hemisphereTest);
+
+  // var testLight = new THREE.DirectionalLight( 0xffffff, 0.1 );
+  // testLight.position.set( 10, 10, 10);
+  // scene.add(testLight);
+
+  // var testLight2 = new THREE.DirectionalLight( 0xffffff, 0.1);
+  // testLight2.position.set( 10, -10, -10);
+  // scene.add(testLight2);
+
+  // var testLight3 = new THREE.DirectionalLight( 0xffffff, 0.1);
+  // testLight3.position.set( -10, -10, -10);
+  // scene.add(testLight3);
+
+  // var testLight4 = new THREE.DirectionalLight( 0xffffff, 0.1);
+  // testLight4.position.set( -10, -10, 10);
+  // scene.add(testLight4);
+
+
+  // var light1 = new THREE.DirectionalLight( 0xffffff );
+  // light1.position.set( 10, 10, 10 );
+  // scene.add( light1 );
 
   // var light2 = new THREE.DirectionalLight( 0xffffff );
   // light2.position.set( 1, 1, 1 );
   // scene.add( light2 );
 
-  var light3 = new THREE.AmbientLight( 0x222222 );
-  scene.add( light3 );
+  // var light3 = new THREE.AmbientLight( 0x362819 );
+  // scene.add( light3 );
 
-  var light4 = new THREE.DirectionalLight( 0xffffff );
-  light4.position.set(-2,-2, 2);
-  scene.add( light4 );
+  // var light4 = new THREE.DirectionalLight( 0xffffff );
+  // light4.position.set( -10, -10, -10);
+  // scene.add( light4 );
 
-  var light5 = new THREE.DirectionalLight( 0xffffff );
-  light5.position.set(5,5,-10);
-  scene.add( light5 );
+  // var light5 = new THREE.DirectionalLight( 0xffffff );
+  // light5.position.set(5,5,10);
+  // scene.add( light5 );
 
 
   // renderer
 
   renderer = new THREE.WebGLRenderer( { antialias: false } );
-  // renderer.setClearColor( scene.fog.color, 1 );
+  renderer.setClearColor( 0x2B2B2B, 1);
   renderer.setSize( window.innerWidth, window.innerHeight );
 
   container = document.getElementById( 'container' );
