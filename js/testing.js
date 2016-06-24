@@ -17,12 +17,12 @@ function init() {
   controls.addEventListener( 'change', render );
 
   scene = new THREE.Scene();
-  // scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );
+  scene.fog = new THREE.FogExp2( 0xdddddd, 0.002 );
 
   // world
   var loader = new THREE.STLLoader();
   var material = new THREE.MeshPhongMaterial( { color: 0xAAAAAA, specular: 0x111111, shininess: 0 } );
-  loader.load( './assets/testfile.stl', function ( geometry ) { // need to dynamically load each file (from url?)
+  loader.load( './assets/testfile3.stl', function ( geometry ) { // need to dynamically load each file (from url?)
     var meshMaterial = material;
     if (geometry.hasColors) {
       meshMaterial = new THREE.MeshPhongMaterial({ opacity: geometry.alpha, vertexColors: THREE.VertexColors });
@@ -70,11 +70,15 @@ function init() {
   light5.position.set(5,5,-10);
   scene.add( light5 );
 
+  // var light6 = new THREE.DirectionalLight( 0xffffff );
+  // light6.position.set(-5,-2,-10);
+  // scene.add( light6 );
+
 
   // renderer
 
   renderer = new THREE.WebGLRenderer( { antialias: false } );
-  // renderer.setClearColor( scene.fog.color, 1 );
+  renderer.setClearColor( scene.fog.color, 1 );
   renderer.setSize( window.innerWidth, window.innerHeight );
 
   container = document.getElementById( 'container' );
