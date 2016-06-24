@@ -99,11 +99,7 @@ function init() {
   // renderer
 
   renderer = new THREE.WebGLRenderer( { antialias: false } );
-<<<<<<< HEAD
-  renderer.setClearColor( scene.fog.color, 1 );
-=======
   renderer.setClearColor( 0x2B2B2B, 1);
->>>>>>> 8f976c5bcbaa9aecfd171976f0a0c37c9d1c0037
   renderer.setSize( window.innerWidth, window.innerHeight );
 
   container = document.getElementById( 'container' );
