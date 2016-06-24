@@ -13,14 +13,13 @@ function init() {
   controls.addEventListener( 'change', render );
 
   scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2( 0xdddddd, 0.002 );
 
   // world
   var loader = new THREE.STLLoader();
 
   var material = new THREE.MeshPhongMaterial( { color: 0xDEDEDE, specular: 0x111111, shininess: 0 } );
-  var file = findFileName(window.location.href); // finds filename from url (expecting no .html at end of url)
-
+  // var file = findFileName(window.location.href); // finds filename from url (expecting no .html at end of url)
+  var file = './assets/testfile.stl';
   loader.load( file, function ( geometry ) {
     var meshMaterial = material;
     if (geometry.hasColors) {
@@ -46,7 +45,7 @@ function init() {
 
   // lights
 
-  var hemisphereTest = new THREE.AmbientLight(0x888888);
+  var hemisphereTest = new THREE.AmbientLight(0xaaaaaa);
   scene.add(hemisphereTest);
 
   var pointLight = new THREE.PointLight(0xffffff, 0.25, 0);

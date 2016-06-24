@@ -9,7 +9,7 @@ animate();
 
 function init() {
 
-  camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 100 );
+  camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 250 );
   camera.position.z = 30;
 
   controls = new THREE.OrbitControls( camera );
@@ -22,7 +22,7 @@ function init() {
   var loader = new THREE.STLLoader();
 
   var material = new THREE.MeshPhongMaterial( { color: 0xDEDEDE, specular: 0x111111, shininess: 0 } );
-  loader.load( './assets/testfile.stl', function ( geometry ) { // need to dynamically load each file (from url?)
+  loader.load( './assets/testfile3.stl', function ( geometry ) { // need to dynamically load each file (from url?)
     var meshMaterial = material;
     if (geometry.hasColors) {
       meshMaterial = new THREE.MeshPhongMaterial({ opacity: geometry.alpha, vertexColors: THREE.VertexColors });
@@ -47,8 +47,8 @@ function init() {
 
   // lights
 
-  var hemisphereTest = new THREE.AmbientLight(0x888888);
-  scene.add(hemisphereTest);
+  var ambient = new THREE.AmbientLight(0xaaaaaa);
+  scene.add(ambient);
 
   var pointLight = new THREE.PointLight(0xffffff, 0.25, 0);
   pointLight.position.set(0,0,100);
