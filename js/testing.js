@@ -17,12 +17,11 @@ function init() {
   controls.addEventListener( 'change', render );
 
   scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2( 0xdddddd, 0.002 );
 
   // world
   var loader = new THREE.STLLoader();
 
-  var material = new THREE.MeshPhongMaterial( { color: 0xBFBFBF, specular: 0x111111, shininess: 0 } );
+  var material = new THREE.MeshPhongMaterial( { color: 0xDEDEDE, specular: 0x111111, shininess: 0 } );
   loader.load( './assets/testfile.stl', function ( geometry ) { // need to dynamically load each file (from url?)
     var meshMaterial = material;
     if (geometry.hasColors) {
@@ -31,7 +30,7 @@ function init() {
     var mesh = new THREE.Mesh( geometry, meshMaterial );
     
 
-    // testing:
+    // centering:
     var box = new THREE.Box3().setFromObject( mesh );
     box.center( mesh.position ); // this re-sets the mesh position
     mesh.position.multiplyScalar( - 1 );
@@ -41,10 +40,6 @@ function init() {
     pivot.add( mesh );
 
 
-
-    // mesh.position.set( 0, 0, 0);
-    // mesh.rotation.set( Math.PI / 2, Math.PI / 2,  Math.PI / 2 );
-    // mesh.scale.set( 0.3, 0.3, 0.3 );
     mesh.castShadow = true;
     mesh.receiveShadow = true;
     scene.add( mesh );
@@ -52,48 +47,21 @@ function init() {
 
   // lights
 
-  var hemisphereTest = new THREE.HemisphereLight(0xFFF5EE, 0xB0A6A4, 0.9);
+  var hemisphereTest = new THREE.AmbientLight(0x888888);
   scene.add(hemisphereTest);
 
-  // var testLight = new THREE.DirectionalLight( 0xffffff, 0.1 );
-  // testLight.position.set( 10, 10, 10);
-  // scene.add(testLight);
+  var pointLight = new THREE.PointLight(0xffffff, 0.25, 0);
+  pointLight.position.set(0,0,100);
+  scene.add(pointLight);
 
-  // var testLight2 = new THREE.DirectionalLight( 0xffffff, 0.1);
-  // testLight2.position.set( 10, -10, -10);
-  // scene.add(testLight2);
+  var pointLight2 = new THREE.PointLight(0xffffff, 0.25, 0);
+  pointLight2.position.set(0,0,-100);
+  scene.add(pointLight2);
 
-  // var testLight3 = new THREE.DirectionalLight( 0xffffff, 0.1);
-  // testLight3.position.set( -10, -10, -10);
-  // scene.add(testLight3);
+  var pointLight3 = new THREE.PointLight(0xffffff, 1, 50);
+  pointLight3.position.set(-30,30,0);
+  scene.add(pointLight3);
 
-  // var testLight4 = new THREE.DirectionalLight( 0xffffff, 0.1);
-  // testLight4.position.set( -10, -10, 10);
-  // scene.add(testLight4);
-
-
-  // var light1 = new THREE.DirectionalLight( 0xffffff );
-  // light1.position.set( 10, 10, 10 );
-  // scene.add( light1 );
-
-  // var light2 = new THREE.DirectionalLight( 0xffffff );
-  // light2.position.set( 1, 1, 1 );
-  // scene.add( light2 );
-
-  // var light3 = new THREE.AmbientLight( 0x362819 );
-  // scene.add( light3 );
-
-  // var light4 = new THREE.DirectionalLight( 0xffffff );
-  // light4.position.set( -10, -10, -10);
-  // scene.add( light4 );
-
-  // var light5 = new THREE.DirectionalLight( 0xffffff );
-  // light5.position.set(5,5,10);
-  // scene.add( light5 );
-
-  // var light6 = new THREE.DirectionalLight( 0xffffff );
-  // light6.position.set(-5,-2,-10);
-  // scene.add( light6 );
 
 
   // renderer
