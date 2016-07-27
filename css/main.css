@@ -1,8 +1,24 @@
-h1 {
-<<<<<<< HEAD
-	font-color: #ffff00;
+header {
+	background-color: #022735;
+	color: white;
+	text-align: right;
+	margin-top: 0 auto;
+	background-image: url('../images/IMG_0960.JPG');
+	background-position: center top;
+	background-size: cover;
+	line-height: 1.2;
+	padding: 10vw 2em;
 }
-=======
-  color: red;
-};
->>>>>>> c49c19e924a70b2abb009fc445bf93e2bfb0649a
+
+body {
+	margin: 0 auto;
+	max-width: 65em;
+	font-family: "Helvetica";
+	background-color: #27586B;
+	color: white;
+	line-height: 1.5;
+}
+
+#content: {
+	
+}
