@@ -6,8 +6,13 @@ header {
 	background-image: url('../images/IMG_0960.JPG');
 	background-position: center top;
 	background-size: cover;
+	background-repeat: no-repeat;
 	line-height: 1.2;
 	padding: 10vw 2em;
+}
+
+a {
+	color: white;
 }
 
 body {
@@ -19,6 +24,23 @@ body {
 	line-height: 1.5;
 }
 
-#content: {
-	
+#name, #subtitle {
+	line-height: 0;
+}
+
+#subtitle {
+	font-size: 80%;
+}
+
+.left {
+	float: left;
+	max-width: 20em;
+	border: 2px solid white;
+	padding: 1em;
+	margin: 10px;
+}
+
+.right {
+	float: right;
+	max-width: 40em;
 }
