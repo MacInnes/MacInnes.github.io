@@ -8,7 +8,8 @@ header {
 	background-size: cover;
 	background-repeat: no-repeat;
 	line-height: 1.2;
-	padding: 10vw 2em;
+	padding: 6vw 2em;
+	transition: 1s;
 }
 
 a {
@@ -17,11 +18,20 @@ a {
 
 body {
 	margin: 0 auto;
-	max-width: 65em;
 	font-family: "Helvetica";
 	background-color: #27586B;
 	color: white;
 	line-height: 1.5;
+}
+
+.headerWrap :hover{
+	padding: 25vw 2em;
+	transition: 1s;
+}
+
+.content {
+	margin: 0 auto;
+	max-width: 65em;
 }
 
 #name, #subtitle {
