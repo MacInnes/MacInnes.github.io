@@ -1,0 +1,56 @@
+header {
+	background-color: #022735;
+	color: white;
+	text-align: right;
+	margin-top: 0 auto;
+	background-image: url('../images/IMG_0960.JPG');
+	background-position: center top;
+	background-size: cover;
+	background-repeat: no-repeat;
+	line-height: 1.2;
+	padding: 6vw 2em;
+	transition: 1s;
+}
+
+a {
+	color: white;
+}
+
+body {
+	margin: 0 auto;
+	font-family: "Helvetica";
+	background-color: #27586B;
+	color: white;
+	line-height: 1.5;
+}
+
+.headerWrap :hover{
+	padding: 25vw 2em;
+	transition: 1s;
+}
+
+.content {
+	margin: 0 auto;
+	max-width: 65em;
+}
+
+#name, #subtitle {
+	line-height: 0;
+}
+
+#subtitle {
+	font-size: 80%;
+}
+
+.left {
+	float: left;
+	max-width: 20em;
+	border: 2px solid white;
+	padding: 1em;
+	margin: 10px;
+}
+
+.right {
+	float: right;
+	max-width: 40em;
+}
