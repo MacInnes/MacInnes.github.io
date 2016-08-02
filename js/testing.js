@@ -104,8 +104,3 @@ function findFileName(url){
   var fileName = url.split('/');
   return filePath + fileName[fileName.length - 1] + '.stl';
 }
-// testing purposes:
-
-console.log(findFileName('www.mockett.com/3d/PCS82A-U1'));
-
-console.log(window.location.href);

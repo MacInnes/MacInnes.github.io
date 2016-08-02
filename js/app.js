@@ -19,7 +19,7 @@ function init() {
 
   var material = new THREE.MeshPhongMaterial( { color: 0xDEDEDE, specular: 0x111111, shininess: 0 } );
   // var file = findFileName(window.location.href); // finds filename from url (expecting no .html at end of url)
-  var file = 'https://macinnes.github.io/assets/testfile.stl';
+  var file = './assets/testfile.stl';
   loader.load( file, function ( geometry ) {
     var meshMaterial = material;
     if (geometry.hasColors) {
