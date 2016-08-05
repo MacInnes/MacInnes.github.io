@@ -24,8 +24,8 @@ body {
 	line-height: 1.5;
 }
 
-.headerWrap :hover{
-	padding: 25vw 2em;
+#headerWrap :hover{
+	padding: 20vw 2em;
 	transition: 1s;
 }
 
