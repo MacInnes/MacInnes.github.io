@@ -1,11 +1,15 @@
-var container, camera, controls, scene, renderer;
+var container, stats;
+
+var camera, controls, scene, renderer;
+
+var cross;
 
 init();
 animate();
 
 function init() {
 
-  camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 100 );
+  camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 250 );
   camera.position.z = 30;
 
   controls = new THREE.OrbitControls( camera );
@@ -18,9 +22,7 @@ function init() {
   var loader = new THREE.STLLoader();
 
   var material = new THREE.MeshPhongMaterial( { color: 0xDEDEDE, specular: 0x111111, shininess: 0 } );
-  // var file = findFileName(window.location.href); // finds filename from url (expecting no .html at end of url)
-  var file = './assets/testfile.stl';
-  loader.load( file, function ( geometry ) {
+  loader.load( './assets/testfile3.stl', function ( geometry ) { // need to dynamically load each file (from url?)
     var meshMaterial = material;
     if (geometry.hasColors) {
       meshMaterial = new THREE.MeshPhongMaterial({ opacity: geometry.alpha, vertexColors: THREE.VertexColors });
@@ -45,8 +47,8 @@ function init() {
 
   // lights
 
-  var hemisphereTest = new THREE.AmbientLight(0xaaaaaa);
-  scene.add(hemisphereTest);
+  var ambient = new THREE.AmbientLight(0xaaaaaa);
+  scene.add(ambient);
 
   var pointLight = new THREE.PointLight(0xffffff, 0.25, 0);
   pointLight.position.set(0,0,100);
@@ -102,4 +104,3 @@ function findFileName(url){
   var fileName = url.split('/');
   return filePath + fileName[fileName.length - 1] + '.stl';
 }
->>>>>>> 71e9853ab49f51e4e2159a605e709d52ff05f9aa
