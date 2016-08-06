@@ -22,7 +22,7 @@ function init() {
   var loader = new THREE.STLLoader();
 
   var material = new THREE.MeshPhongMaterial( { color: 0xDEDEDE, specular: 0x111111, shininess: 0 } );
-  loader.load( './assets/testfile3.stl', function ( geometry ) { // need to dynamically load each file (from url?)
+  loader.load( './assets/testfile2.stl', function ( geometry ) { // need to dynamically load each file (from url?)
     var meshMaterial = material;
     if (geometry.hasColors) {
       meshMaterial = new THREE.MeshPhongMaterial({ opacity: geometry.alpha, vertexColors: THREE.VertexColors });
